@@ -70,6 +70,9 @@ var widgetopts_fe = {
 				m 		= parseInt( elem.css('margin-bottom') );
 				d 		= prent.attr('data-sticky-spacer');
 				
+				pos.left = rect.left;
+				pos.top = rect.left;
+
 				if( pos.left < rect.left && elem.hasClass( 'elementor-element' ) ){
 					pos.left = rect.left;
 				}

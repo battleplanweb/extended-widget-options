@@ -187,14 +187,17 @@ if( !function_exists( 'widgetopts_display_callback' ) ):
                 return false;
             }
         }elseif ( is_post_type_archive() ) {
-            $current_type_archive = get_post_type();
             if( !isset( $visibility['types'] ) || ( $is_types && !isset( $visibility['types'] ) ) ){
                 $visibility['types'] = array();
             }
-            if( $visibility_opts == 'hide' && array_key_exists( $current_type_archive , $visibility['types']) ){
-                $hidden = true; //hide if exists on hidden pages
-            }elseif( $visibility_opts == 'show' && !array_key_exists( $current_type_archive , $visibility['types'] ) ){
-                $hidden = true; //hide if doesn't exists on visible pages
+
+            $current_type_archive = get_post_type();
+            if ( !empty( $current_type_archive ) ){
+                if( $visibility_opts == 'hide' && array_key_exists( $current_type_archive , $visibility['types']) ){
+                    $hidden = true; //hide if exists on hidden pages
+                }elseif( $visibility_opts == 'show' && !array_key_exists( $current_type_archive , $visibility['types'] ) ){
+                    $hidden = true; //hide if doesn't exists on visible pages
+                }
             }
 
             //do return to bypass other conditions
@@ -629,13 +632,14 @@ endif;
         $id_base        = $wp_registered_widget_controls[ $params[0]['widget_id'] ]['id_base'];
         $instance       = get_option( 'widget_' . $id_base );
 
-        if( isset( $wp_registered_widget_controls[ $params[0]['widget_id'] ]['params'][0]['number'] ) ){
+        $num = substr( $params[0]['widget_id'], -1 );
+		if( isset( $wp_registered_widget_controls[ $params[0]['widget_id'] ]['params'][0]['number'] ) ){
             $num = $wp_registered_widget_controls[ $params[0]['widget_id'] ]['params'][0]['number'];
-        }elseif( isset( $wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'][0]->number ) ){
-            $num = $wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'][0]->number;
-        }else{
-            $num = substr( $params[0]['widget_id'], -1 );
-        }
+        } elseif( isset($wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback']) && is_array($wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'])){
+			if (isset($wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'][0]) && isset( $wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'][0]->number)) {
+				$num = $wp_registered_widget_controls[ $params[0]['widget_id'] ]['callback'][0]->number;
+			}
+		}
         if( isset( $instance[ $num ] ) ){
             $opts           = ( isset( $instance[ $num ][ 'extended_widget_opts-'. $params[0]['widget_id'] ] ) ) ? $instance[ $num ][ 'extended_widget_opts-'. $params[0]['widget_id'] ] : array();
         }else{

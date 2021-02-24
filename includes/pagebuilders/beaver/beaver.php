@@ -602,7 +602,7 @@ class WP_Widget_Options_Beaver {
 				//ACF
 				if( isset( $widget_options['acf'] ) && 'activate' == $widget_options['acf'] ){
 					$fields = array( '' => __( 'Select Field', 'widget-options' ) );
-					if ( defined( 'ACF_PRO' ) ) {
+					if ( function_exists( 'acf_get_field_groups' ) ) {
 		                $groups = acf_get_field_groups();
 		                if ( is_array( $groups ) ) {
 		                    foreach ( $groups as $group ) {
@@ -1464,7 +1464,10 @@ class WP_Widget_Options_Beaver {
 	}
 }
 
-add_action( 'plugins_loaded', array( 'WP_Widget_Options_Beaver', 'init' ));
-// new WP_Widget_Options_Beaver();
+if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+    new WP_Widget_Options_Beaver();
+}else {
+    add_action( 'plugins_loaded', array( 'WP_Widget_Options_Beaver', 'init' ));
+}
 
 endif;

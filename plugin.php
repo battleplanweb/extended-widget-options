@@ -3,14 +3,14 @@
  * Plugin Name: Extended Widget Options
  * Plugin URI: https://widget-options.com/
  * Description: Your all-in-one plugin to completely manage your widgets.
- * Version: 4.6.1
- * Author: Phpbits Creative Studio
- * Author URI: https://phpbits.net/
+ * Version: 4.6.4
+ * Author: Widget Options Team
+ * Author URI: https://widget-options.com/
  * Text Domain: widget-options
  * Domain Path: languages
  *
  * @category Widgets
- * @author Jeffrey Carandang
+ * @author Widget Options Team
  * @version 4.6
  Github Plugin URI: https://github.com/battleplanweb/extended-widget-options
 
@@ -75,7 +75,7 @@ final class WP_Widget_Options {
 
 		// Plugin version.
 		if ( ! defined( 'WIDGETOPTS_VERSION' ) ) {
-			define( 'WIDGETOPTS_VERSION', '4.6.1' );
+			define( 'WIDGETOPTS_VERSION', '4.6.4' );
 		}
 
 		// Plugin Folder Path.

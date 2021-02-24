@@ -24,7 +24,7 @@ class WIDGETOPTS_License {
 	private $item_shortname;
 	private $version;
 	private $author;
-	private $api_url = 'https://phpbits.net/edd-sl-api/';
+	private $api_url = 'https://widget-options.com/edd-sl-api/';
 
 	/**
 	 * Class constructor

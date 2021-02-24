@@ -304,7 +304,7 @@ function widgetopts_tabcontent_visibility( $args ){
                 <div id="extended-widget-opts-visibility-tab-<?php echo $args['id'];?>-acf" class="extended-widget-opts-visibility-tabcontent extended-widget-opts-inner-tabcontent">
                     <?php
                     $fields = array();
-                    if ( defined( 'ACF_PRO' ) ) {
+                    if ( function_exists( 'acf_get_field_groups' ) ) {
                         $groups = acf_get_field_groups();
                         if ( is_array( $groups ) ) {
                             foreach ( $groups as $group ) {
