@@ -25,7 +25,7 @@ function widgetopts_settings_support_box(){ ?>
 				<?php _e( 'In need of any assistance or having issue using Extended Widget Options Plugin? We are very happy to help you out, just click the button below and we will answer your concerns professionally. Thanks!', 'widget-options' );?>
 			</p>
 			<p>
-				<a class="button-secondary" href="https://phpbits.net/contact/?utm_source=wordpressadmin&amp;utm_medium=widget&amp;utm_campaign=widgetoptssupportcta" target="_blank"><?php _e( 'Open Support Ticket', 'widget-options' );?></a>
+				<a class="button-secondary" href="https://widget-options.com/contact/" target="_blank"><?php _e( 'Open Support Ticket', 'widget-options' );?></a>
 			</p>
 		</div>
 	</div>

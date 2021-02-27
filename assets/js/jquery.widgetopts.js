@@ -341,6 +341,6 @@ var widgetopts_fe = {
 
 }
 
-jQuery(window).load(function() {
-	widgetopts_fe.init();
+jQuery(window).on("load", function () {
+	widgetopts_fe.init()
 });

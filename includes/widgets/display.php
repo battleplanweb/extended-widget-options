@@ -484,8 +484,8 @@ if( !function_exists( 'widgetopts_display_callback' ) ):
             // display widget logic
             if( isset( $opts['class'] ) && isset( $opts['class']['logic'] ) && !empty( $opts['class']['logic'] ) ){
                 $display_logic = stripslashes( trim( $opts['class']['logic'] ) );
-                $display_logic = apply_filters( 'extended_widget_options_logic_override', $display_logic );
                 $display_logic = apply_filters( 'widget_options_logic_override', $display_logic );
+                $display_logic = apply_filters( 'extended_widget_options_logic_override', $display_logic );
                 if ( $display_logic === false ){
                     return false;
                 }
@@ -495,9 +495,14 @@ if( !function_exists( 'widgetopts_display_callback' ) ):
                 if ( stristr($display_logic,"return")===false ){
                     $display_logic="return (" . $display_logic . ");";
                 }
-                if ( !eval( $display_logic ) ){
-                    return false;
-                }
+				$display_logic = htmlspecialchars_decode($display_logic, ENT_QUOTES);
+				try {
+					if ( !eval( $display_logic ) ){
+						return false;
+					}
+				} catch (ParseError $e) {
+					return false;
+				}
             }
         }
 
