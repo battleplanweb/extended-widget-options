@@ -8,6 +8,7 @@
  * Author URI: https://widget-options.com/
  * Text Domain: widget-options
  * Domain Path: languages
+ Github Plugin URI: https://github.com/battleplanweb/extended-widget-options
  *
  * @category Widgets
  * @author Widget Options Team
