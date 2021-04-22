@@ -26,12 +26,9 @@ if( !function_exists( 'widgetopts_upgraded' ) ){
 if( !function_exists( 'widgetopts_filter_plugin_actions' ) ){
   add_action( 'plugin_action_links_' . plugin_basename( WIDGETOPTS_PLUGIN_FILE ) , 'widgetopts_filter_plugin_actions' );
   function widgetopts_filter_plugin_actions($links){
-
-  	//Fix PHP 7.1 array issue https://github.com/phpbits/widget-options/commit/78ab30205fc38396e791bbd6f376b40c53d5ed02
   	if( !is_array( $links ) ){
   		$links = array();
   	}
-
     $links[]  = '<a href="'. esc_url( admin_url( 'options-general.php?page=widgetopts_plugin_settings' ) ) .'">' . __( 'Settings', 'widget-options' ) . '</a>';
     return $links;
   }

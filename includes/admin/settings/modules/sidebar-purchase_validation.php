@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 if( !function_exists( 'widgetopts_settings_validation_form' ) ):
 	function widgetopts_settings_validation_form(){
-	    $visible 		= true;
+	    $visible 		= false;
 	    $item_shortname = 'widgetopts_' . preg_replace( '/[^a-zA-Z0-9_\s]/', '', str_replace( ' ', '_', strtolower( WIDGETOPTS_PLUGIN_NAME ) ) );
 		$license_data 	= get_option( $item_shortname . '_license_active' );
 		$formdata 		= get_option( 'widgetopts_license_keys' );

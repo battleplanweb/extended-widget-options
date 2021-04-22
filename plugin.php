@@ -3,12 +3,11 @@
  * Plugin Name: Widget Options - Extended
  * Plugin URI: https://widget-options.com/
  * Description: Your all-in-one plugin to completely manage your widgets.
- * Version: 4.6.5
+ * Version: 4.6.6
  * Author: Widget Options Team
  * Author URI: https://widget-options.com/
  * Text Domain: widget-options
  * Domain Path: languages
- Github Plugin URI: https://github.com/battleplanweb/extended-widget-options
  *
  * @category Widgets
  * @author Widget Options Team
@@ -74,7 +73,7 @@ final class WP_Widget_Options {
 
 		// Plugin version.
 		if ( ! defined( 'WIDGETOPTS_VERSION' ) ) {
-			define( 'WIDGETOPTS_VERSION', '4.6.5' );
+			define( 'WIDGETOPTS_VERSION', '4.6.6' );
 		}
 
 		// Plugin Folder Path.
