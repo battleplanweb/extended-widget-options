@@ -4,8 +4,7 @@
  * Plugin URI: https://widget-options.com/
  * Description: Your all-in-one plugin to completely manage your widgets.
  * Version: 4.6.6
- * Author: Widget Options Team
- * Author URI: https://widget-options.com/
+ * GitHub Plugin URI: battleplanweb/extended-widget-options
  * Text Domain: widget-options
  * Domain Path: languages
  *
